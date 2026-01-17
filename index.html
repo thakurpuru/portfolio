@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+</head>
+
+<body data-theme="dark">
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="portfolio-wrapper">
+        <!-- Hero Section -->
+        <header class="hero-nav">
+            <div class="logo">Purushottam !</div>
+            <nav class="nav-links">
+                <button class="btn-contact"
+                    onclick="document.querySelector('#home-menu').scrollIntoView({behavior: 'smooth'})">EXPLORE</button>
+                <button class="btn-contact"
+                    onclick="document.querySelector('footer').scrollIntoView({behavior: 'smooth'})">CONTACT
+                    ME</button>
+                <i id="theme-toggle" class="fas fa-moon theme-icon-btn" title="Toggle Theme"></i>
+                <button id="login-btn" class="btn-secondary btn-sm">Login</button>
+                <button id="logout-btn" class="btn-secondary btn-sm hidden">Logout</button>
+            </nav>
+        </header>
+
+        <section id="hero" class="hero-section">
+
+
+            <div class="hero-content">
+                <div class="hero-left">
+                    <p class="hero-greeting">Hi, I am</p>
+                    <h1 id="header-name" class="hero-name">Purushottam Thakur</h1>
+                    <p id="header-title" class="hero-subtitle">.</p>
+
+                    <div class="hero-socials">
+                        <a href="#" id="hero-github" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" id="hero-linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://leetcode.com/u/shivamthakur_6575/" id="hero-leetcode" target="_blank"><i class="fas fa-code"></i></a>
+                        <a href="#" id="hero-profile" target="_blank"><i class="fas fa-user"></i></a>
+                        <a href="#" id="hero-email-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <div class="photo-container">
+                        <div class="photo-placeholder">
+                            <img src="photo.png" alt="Profile Photo" class="profile-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" onload="this.nextElementSibling.style.display='none'; ">
+                            <div class="profile-photo-fallback">
+                                <i class="fas fa-user"></i>
+                                <span>Photo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="container">
+            <!-- Home Menu (Downwards) -->
+            <nav id="home-menu" class="menu-grid">
+                <div class="menu-item" onclick="showSection('personal-details-section')">
+                    <i class="fas fa-id-card"></i>
+                    <h3>Personal Details</h3>
+                </div>
+                <div class="menu-item" onclick="showSection('objective-section')">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Objective</h3>
+                </div>
+                <div class="menu-item" onclick="showSection('education-section')">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Education</h3>
+                </div>
+                <div class="menu-item" onclick="showSection('experience-section')">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Experience</h3>
+                </div>
+                <div class="menu-item" onclick="showSection('skills-section')">
+                    <i class="fas fa-code"></i>
+                    <h3>Skills</h3>
+                </div>
+                <div class="menu-item" onclick="showSection('projects-section')">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Projects</h3>
+                </div>
+            </nav>
+
+            <footer id="home-footer">
+                <div class="footer-content">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-envelope"></i> <span id="footer-email">.</span></p>
+                    <div id="footer-links" class="social-links"></div>
+                </div>
+            </footer>
+
+            <!-- Sections Container -->
+            <main id="main-content" class="hidden">
+
+                <!-- Personal Details -->
+                <section id="personal-details-section" class="content-section hidden">
+                    <div class="section-header">
+                        <button class="back-btn" onclick="goToHome()">
+                         <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <h2>Personal Details</h2>
+                        <button id="edit-profile-btn" class="btn-icon hidden" title="Edit Profile"><i
+                                class="fas fa-edit"></i></button>
+                    </div>
+                    <div class="card glass-card">
+                        <p><strong><i class="fas fa-user"></i> Name:</strong> <span id="name">Purushottam</span></p>
+                        <p><strong><i class="fas fa-info-circle"></i> Bio:</strong> <span id="bio">Loading...</span></p>
+                        <p><strong><i class="fas fa-envelope"></i> Email:</strong> <span id="email">Loading...</span>
+                        </p>
+                        <p><strong><i class="fas fa-heart"></i> Interests:</strong> <span
+                                id="interests">Loading...</span></p>
+                        <p><strong><i class="fas fa-clock"></i> Availability:</strong> <span
+                                id="availability">Loading...</span></p>
+                        <div id="social-links" class="social-links"></div>
+                    </div>
+                </section>
+
+                <!-- Objective -->
+                <section id="objective-section" class="content-section hidden">
+                    <div class="section-header">
+                        <button class="back-btn" onclick="goToHome()">
+                         <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <h2>Objective</h2> <button id="edit-objective-btn" class="btn-icon hidden"
+                            title="Edit Objective"><i class="fas fa-edit"></i></button>
+                    </div>
+                    <div class="card glass-card">
+                        <p id="objective">Loading...</p>
+                    </div>
+                </section>
+
+                <!-- Education -->
+                <section id="education-section" class="content-section hidden">
+                    <div class="section-header">
+                        <button class="back-btn" onclick="goToHome()">
+                         <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <h2>Education</h2>
+                        <button id="add-education-btn" class="btn-primary hidden"><i class="fas fa-plus"></i> Add
+                            Education</button>
+                    </div>
+                    <div id="education-list" class="timeline"></div>
+                </section>
+
+                <!-- Experience -->
+                <section id="experience-section" class="content-section hidden">
+                    <div class="section-header">
+                        <button class="back-btn" onclick="goToHome()">
+                         <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <h2>Experience</h2>
+                        <button id="add-experience-btn" class="btn-primary hidden"><i class="fas fa-plus"></i> Add
+                            Experience</button>
+                    </div>
+                    <div id="experience-list" class="timeline"></div>
+                </section>
+
+                <!-- Skills & Technologies -->
+                <section id="skills-section" class="content-section hidden">
+                    <div class="section-header">
+                        <button class="back-btn" onclick="goToHome()">
+                         <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <h2>Skills & Technologies</h2>
+                        <button id="add-skill-btn" class="btn-primary hidden"><i class="fas fa-plus"></i> Add
+                            Skill</button>
+                    </div>
+                    <p class="section-description">A comprehensive overview of my technical skills, frameworks, and tools that I use to build modern applications</p>
+                    
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <h3 id="total-skills-count">0</h3>
+                            <p>Total Technologies</p>
+                        </div>
+                    </div>
+                    
+                    <div id="skills-list" class="skills-grid"></div>
+                </section>
+
+                <!-- Projects -->
+                <section id="projects-section" class="content-section hidden">
+                    <div class="section-header">
+                        <button class="back-btn" onclick="goToHome()">
+                         <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <h2>All Projects</h2>
+                        <button id="add-project-btn" class="btn-primary hidden"><i class="fas fa-plus"></i> Add
+                            Project</button>
+                    </div>
+                    <p class="section-description">A comprehensive collection of my projects showcasing full-stack development, and modern web technologies</p>
+                    
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <h3>0</h3>
+                            <p>Total Projects</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>0</h3>
+                            <p>Technologies</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>0</h3>
+                            <p>Live Demos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="search-input" placeholder="Search projects by name, tech stack...">
+                    </div>
+                    
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All Projects</button>
+                        <button class="filter-btn" data-filter="main">Main Projects</button>
+                        <button class="filter-btn" data-filter="react">React Projects</button>
+                        <button class="filter-btn" data-filter="javascript">JavaScript Projects</button>
+                        <button class="filter-btn" data-filter="htmlcss">HTML/CSS Projects</button>
+                        <button class="filter-btn" data-filter="bootstrap">Bootstrap</button>
+                        <button class="filter-btn" data-filter="react-native">React Native</button>
+                        <button class="filter-btn" data-filter="group">MYSQL Projects</button>
+                    </div>
+                    
+                    <div id="projects-list" class="projects-grid"></div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="login-modal" class="modal hidden">
+        <div class="modal-content glass-card">
+            <h3>Login</h3>
+            <input type="password" id="admin-password" placeholder="Enter Password">
+            <div class="modal-actions">
+                <button id="submit-login" class="btn-primary">Login</button>
+                <button class="close-modal btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="skill-modal" class="modal hidden">
+        <div class="modal-content glass-card">
+            <h3 id="skill-modal-title">Add Skill</h3>
+            <input type="hidden" id="skill-id">
+            <input type="text" id="skill-name" placeholder="Skill Name">
+            <input type="text" id="skill-category" placeholder="Category (e.g. Frontend)">
+            <input type="number" id="skill-proficiency" placeholder="Proficiency (0-100)">
+            <label><input type="checkbox" id="skill-top"> Top Skill</label>
+            <div class="modal-actions">
+                <button id="save-skill" class="btn-primary">Save</button>
+                <button class="close-modal btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="project-modal" class="modal hidden">
+        <div class="modal-content glass-card">
+            <h3 id="project-modal-title">Add Project</h3>
+            <input type="hidden" id="project-id">
+            <input type="text" id="project-title" placeholder="Project Title">
+            <textarea id="project-desc" placeholder="Description"></textarea>
+            <input type="text" id="project-tech" placeholder="Tech Stack (comma separated)">
+            <input type="text" id="project-live" placeholder="Live Link">
+            <input type="text" id="project-github" placeholder="GitHub Link">
+            <div class="modal-actions">
+                <button id="save-project" class="btn-primary">Save</button>
+                <button class="close-modal btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="profile-modal" class="modal hidden">
+        <div class="modal-content glass-card">
+            <h3>Edit Profile</h3>
+            <input type="text" id="profile-name" placeholder="Name">
+            <input type="email" id="profile-email" placeholder="Email">
+            <textarea id="profile-bio" placeholder="Bio"></textarea>
+            <textarea id="profile-objective" placeholder="Objective"></textarea>
+            <textarea id="profile-interests" placeholder="Interests"></textarea>
+            <input type="text" id="profile-availability" placeholder="Availability">
+            <input type="text" id="profile-education" placeholder="Education (Short)">
+            <input type="text" id="profile-github" placeholder="GitHub URL">
+            <input type="text" id="profile-linkedin" placeholder="LinkedIn URL">
+            <input type="text" id="profile-portfolio" placeholder="Portfolio URL">
+            <input type="text" id="profile-leetcode" placeholder="LeetCode URL">
+            <input type="text" id="profile-profile" placeholder="Profile Link">
+            <div class="modal-actions">
+                <button id="save-profile" class="btn-primary">Save</button>
+                <button class="close-modal btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="education-modal" class="modal hidden">
+        <div class="modal-content glass-card">
+            <h3 id="education-modal-title">Add Education</h3>
+            <input type="hidden" id="education-id">
+            <input type="text" id="edu-institution" placeholder="Institution">
+            <input type="text" id="edu-degree" placeholder="Degree">
+            <input type="text" id="edu-start" placeholder="Start Year">
+            <input type="text" id="edu-end" placeholder="End Year">
+            <input type="text" id="edu-cgpa" placeholder="CGPA">
+            <textarea id="edu-coursework" placeholder="Coursework"></textarea>
+            <div class="modal-actions">
+                <button id="save-education" class="btn-primary">Save</button>
+                <button class="close-modal btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="experience-modal" class="modal hidden">
+        <div class="modal-content glass-card">
+            <h3 id="experience-modal-title">Add Experience</h3>
+            <input type="hidden" id="experience-id">
+            <input type="text" id="exp-role" placeholder="Role">
+            <input type="text" id="exp-org" placeholder="Organization">
+            <input type="text" id="exp-duration" placeholder="Duration">
+            <textarea id="exp-desc" placeholder="Description"></textarea>
+            <div class="modal-actions">
+                <button id="save-experience" class="btn-primary">Save</button>
+                <button class="close-modal btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+
+</html>
