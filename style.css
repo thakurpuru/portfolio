@@ -2308,3 +2308,35 @@ footer .social-links {
   }
 }
 
+/* =========================================
+   FIX: EMAIL PILL OVERFLOW ON MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+  .footer-mail {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    padding: 0.55rem 0.8rem;
+    font-size: clamp(0.85rem, 3.2vw, 0.95rem);
+  }
+
+  .footer-mail span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+  }
+
+  .footer-card {
+    overflow: hidden; /* hard safety so nothing crosses border */
+  }
+}
+
+
+
