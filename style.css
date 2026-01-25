@@ -2096,3 +2096,28 @@ footer .social-links {
   margin: 0 !important;
   padding: 0 !important;
 }
+
+/* =====================================
+   FIX: BACK BUTTON ABOVE FIXED HEADER
+   ===================================== */
+
+.back-btn {
+  position: fixed !important;
+  top: calc(70px + 1rem) !important;  /* push below navbar */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3000 !important;           /* higher than hero-nav (1000) */
+}
+
+/* Mobile: navbar is taller, so push more */
+@media (max-width: 768px) {
+  .back-btn {
+    top: calc(95px + 1rem) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-btn {
+    top: calc(110px + 1rem) !important;
+  }
+}
