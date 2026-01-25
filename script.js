@@ -1,7 +1,7 @@
 const API_URL = "https://api-purushottam.onrender.com";
 const API_BASE_URL="https://api-purushottam.onrender.com";
 let isAdmin = false;
-let adminPassword = 'thakur';
+let adminPassword = '';
 
 
 // Test connection
@@ -1153,6 +1153,7 @@ function showSection(sectionId) {
         section.scrollIntoView({ behavior: 'smooth' });
     }
 }
+
 
 
 
