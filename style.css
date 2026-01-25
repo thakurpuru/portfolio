@@ -2121,3 +2121,190 @@ footer .social-links {
     top: calc(110px + 1rem) !important;
   }
 }
+
+
+/* =========================================
+   MODERN RESPONSIVE CONTACT FOOTER
+   ========================================= */
+
+#home-footer {
+  padding: 5rem 5% 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-card {
+  width: 100%;
+  max-width: 900px;
+  padding: 3rem 2rem;
+  border-radius: 28px;
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: var(--gradient-primary);
+  opacity: 0.08;
+  z-index: -1;
+}
+
+.footer-title {
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  font-weight: 900;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-mail {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  background: var(--gradient-subtle);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: clamp(1rem, 3vw, 1.15rem);
+  transition: all 0.3s ease;
+}
+
+.footer-mail:hover {
+  background: var(--gradient-primary);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px var(--primary-glow);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.footer-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.3rem;
+  border-radius: 999px;
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.footer-links a i {
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.footer-links a:hover {
+  background: var(--gradient-primary);
+  color: white;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px var(--primary-glow);
+}
+
+.footer-links a:hover i {
+  color: white;
+}
+
+.footer-note {
+  margin-top: 0.8rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  text-align: center;
+}
+
+
+
+/* =========================================
+   MOBILE: FOOTER LINKS IN 2 CLEAN ROWS
+   ========================================= */
+
+@media (max-width: 480px) {
+
+  .footer-links {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);  /* 3 top, 2 bottom */
+    gap: 12px;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .footer-links a {
+    width: clamp(38px, 11vw, 46px);
+    height: clamp(38px, 11vw, 46px);
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-links a i {
+    font-size: clamp(16px, 4vw, 20px);
+  }
+
+  .footer-links a span {
+    display: none;
+  }
+}
+
+/* =========================================
+   MOBILE: PILL STYLE FOOTER LINKS (LIKE GITHUB)
+   ========================================= */
+
+@media (max-width: 480px) {
+
+  .footer-links {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);   /* 2 buttons per row */
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .footer-links a {
+    width: 100%;
+    height: auto;
+    padding: 8px 12px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: clamp(12px, 3.2vw, 14px);
+    white-space: nowrap;
+  }
+
+  .footer-links a i {
+    font-size: clamp(14px, 4vw, 16px);
+  }
+
+  .footer-links a span {
+    display: inline;
+  }
+}
+
