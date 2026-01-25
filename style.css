@@ -1763,3 +1763,336 @@ footer .social-links {
     position: relative;
     z-index: 1;
 }
+
+
+/* ============================================
+   MOBILE NAVIGATION FIXES
+   ============================================ */
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+    /* Fix navigation layout */
+    .hero-nav {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0.8rem 3%;
+        min-height: auto;
+    }
+    
+    .logo {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        margin-bottom: 5px;
+        font-size: 1.5rem;
+    }
+    
+    .nav-links {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 5px;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+    
+    .nav-links::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    
+    /* Make buttons more visible on mobile */
+    .btn-contact {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        min-width: fit-content;
+    }
+    
+    .theme-icon-btn {
+        padding: 0.6rem;
+        font-size: 1rem;
+        min-width: 40px;
+        height: 40px;
+    }
+    
+    /* Adjust hero section spacing for fixed nav */
+    .hero-section {
+        padding-top: 8rem; /* Increased for taller nav on mobile */
+    }
+    
+    /* Hero content adjustments */
+    .hero-content {
+        gap: 2rem;
+        padding-top: 1rem;
+    }
+    
+    .hero-name {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    /* Photo container size adjustment */
+    .photo-container {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+}
+
+/* For very small screens (iPhone SE) */
+@media (max-width: 375px) {
+    .hero-nav {
+        padding: 0.7rem 2%;
+        gap: 8px;
+    }
+    
+    .logo {
+        font-size: 1.3rem;
+    }
+    
+    .nav-links {
+        gap: 6px;
+    }
+    
+    .btn-contact {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .theme-icon-btn {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        min-width: 36px;
+        height: 36px;
+    }
+    
+    .hero-section {
+        padding-top: 7rem;
+    }
+    
+    .hero-name {
+        font-size: 2.2rem;
+    }
+    
+    .hero-greeting {
+        font-size: 1.1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .photo-container {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .hero-socials a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+}
+
+/* For landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-section {
+        min-height: 120vh;
+        padding-top: 6rem;
+    }
+    
+    .hero-nav {
+        padding: 0.5rem 3%;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .photo-container {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Fix for tablets in portrait mode */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-nav {
+        padding: 1rem 3%;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .photo-container {
+        width: 350px;
+        height: 350px;
+    }
+    
+    .hero-name {
+        font-size: 3.5rem;
+    }
+}
+
+/* Ensure navigation items are always visible */
+.nav-links {
+    display: flex !important;
+    align-items: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Make sure buttons don't shrink too much */
+.btn-contact, .theme-icon-btn {
+    flex-shrink: 0;
+}
+
+/* Add some breathing room around buttons on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .btn-contact, .theme-icon-btn, .hero-socials a {
+        min-height: 44px; /* Minimum touch target size */
+        min-width: 44px;
+    }
+    
+    .btn-contact {
+        padding: 0.7rem 1.5rem;
+    }
+}
+
+/* =====================================
+   ONE-LINE RESPONSIVE NAVBAR (MOBILE)
+   ===================================== */
+
+@media (max-width: 480px) {
+
+  .hero-nav {
+    flex-direction: column;
+    padding: 0.5rem 0.6rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap !important;   /* FORCE single line */
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  /* All buttons auto-scale */
+  .nav-links .btn-contact {
+    padding: clamp(0.35rem, 1.5vw, 0.45rem) clamp(0.6rem, 2.5vw, 0.9rem);
+    font-size: clamp(0.6rem, 2.5vw, 0.8rem);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .nav-links .btn-secondary {
+    padding: clamp(0.3rem, 1.2vw, 0.4rem) clamp(0.55rem, 2vw, 0.8rem);
+    font-size: clamp(0.55rem, 2.3vw, 0.75rem);
+    white-space: nowrap;
+  }
+
+  .theme-icon-btn {
+    padding: clamp(0.35rem, 1.3vw, 0.45rem);
+    font-size: clamp(0.7rem, 2.5vw, 0.95rem);
+    min-width: auto;
+  }
+
+  /* Prevent overflow */
+  .hero-nav * {
+    max-width: 100%;
+  }
+}
+
+/* =====================================
+   MOBILE NAVBAR – KEEP BUTTONS ROUND
+   ===================================== */
+
+@media (max-width: 480px) {
+
+  .nav-links {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap !important;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  /* Explore & Contact buttons */
+  .nav-links .btn-contact {
+    height: 34px;                         /* FIXED HEIGHT */
+    padding: 0 12px;                     /* ONLY horizontal shrink */
+    font-size: clamp(11px, 3vw, 13px);   /* text scales */
+    border-radius: 999px;                /* always pill */
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Login / Logout */
+  .nav-links .btn-secondary {
+    height: 30px;
+    padding: 0 10px;
+    font-size: clamp(10px, 2.8vw, 12px);
+    border-radius: 999px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Theme icon – FORCE CIRCLE */
+  .theme-icon-btn {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    min-height: 34px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ===============================
+   CENTER THE THEME ICON PROPERLY
+   =============================== */
+
+.theme-icon-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+}
+
+/* Force icon itself to behave */
+.theme-icon-btn i,
+.theme-icon-btn::before {
+  display: block;
+  line-height: 1;
+}
+
+/* Extra safety for FontAwesome */
+.theme-icon-btn.fas {
+  margin: 0 !important;
+  padding: 0 !important;
+}
