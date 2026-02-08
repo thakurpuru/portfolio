@@ -2188,7 +2188,7 @@ footer .social-links {
   box-shadow: 0 10px 25px var(--primary-glow);
 }
 
-.footer-links {
+.footer-links,.social-links  {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -2196,7 +2196,7 @@ footer .social-links {
   margin-top: 0.5rem;
 }
 
-.footer-links a {
+.footer-links a,.social-links a {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -2215,7 +2215,7 @@ footer .social-links {
   color: var(--accent);
 }
 
-.footer-links a:hover {
+.footer-links a:hover,.social-links a:hover {
   background: var(--gradient-primary);
   color: white;
   transform: translateY(-3px) scale(1.05);
@@ -2308,6 +2308,7 @@ footer .social-links {
   }
 }
 
+
 /* =========================================
    FIX: EMAIL PILL OVERFLOW ON MOBILE
    ========================================= */
@@ -2337,6 +2338,4 @@ footer .social-links {
     overflow: hidden; /* hard safety so nothing crosses border */
   }
 }
-
-
 
