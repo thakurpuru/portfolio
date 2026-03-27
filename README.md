@@ -1,44 +1,34 @@
 # 🚀 Personal Portfolio API
 
-A backend-first personal profile service that exposes resume and portfolio data via clean REST APIs, with a minimal web UI to view and query the information.
+A backend-first personal profile service that exposes resume and portfolio data via clean REST APIs, with a minimal web UI to view and manage the information.
 
-This project is designed to act as a **personal resume backend**, allowing dynamic management of profile details, skills, projects, and search functionality.
+This project acts as a **personal resume backend**, allowing dynamic management of profile details, skills, projects, and search functionality.
 
 ---
 
 ## ✨ Features
 
-* **Profile Management**
-  Store and fetch personal information such as name, bio, education, and social links.
-
-* **Skills Management**
-  Track technical skills with categories and proficiency levels.
-
-* **Projects Management**
-  Showcase projects with descriptions, tech stacks, and live/GitHub links.
-
-* **Global Search**
-  Search across projects, skills, education, and profile data.
-
-* **Health Check**
-  Monitor backend service status.
-
-* **Minimal Frontend**
-  Clean, responsive UI built with vanilla HTML, CSS, and JavaScript.
+- **Profile Management** – Store and fetch personal info (bio, education, links)
+- **Skills Management** – Track skills with categories and proficiency
+- **Projects Management** – Showcase projects with tech stack & links
+- **Global Search** – Search across all portfolio data
+- **Health Check** – Monitor backend status
+- **Minimal Frontend** – Clean UI using HTML, CSS, JS
 
 ---
 
 ## 🛠 Tech Stack
 
-**Backend:** Node.js, Express
-**Database:** MongoDB
-**Frontend:** HTML, CSS, JavaScript (Vanilla)
+- **Backend:** Node.js, Express.js  
+- **Database:** MongoDB Atlas  
+- **ODM:** Mongoose  
+- **Frontend:** HTML, CSS, JavaScript  
 
 ---
 
 ## 🗄 Database Schema (MongoDB)
 
-The database **portfolio_db** uses MongoDB collections to store data in JSON format.
+The database **portfolio_db** uses MongoDB collections.
 
 ### 👤 Profile
 - name, email, education  
@@ -68,122 +58,34 @@ The database **portfolio_db** uses MongoDB collections to store data in JSON for
 
 ## 🔑 Notes
 - MongoDB uses `_id` instead of `id`  
-- Data is stored as flexible JSON documents  
+- Data stored as flexible JSON documents  
+
+---
 
 ## 🔗 API Endpoints
 
 ### Profile
-
-* `GET /profile` → Fetch personal profile details
+- `GET /profile` → Fetch profile
 
 ### Skills
-
-* `GET /skills` → List all skills
-* `GET /skills/top` → Get top/featured skills
+- `GET /skills` → All skills  
+- `GET /skills/top` → Top skills  
 
 ### Projects
-
-* `GET /projects` → List all projects
-* `GET /projects?skill=javascript` → Filter projects by skill
+- `GET /projects` → All projects  
+- `GET /projects?skill=javascript` → Filter projects  
 
 ### Search
-
-* `GET /search?q=query` → Global search across portfolio data
+- `GET /search?q=query` → Global search  
 
 ### Health
-
-* `GET /health` → Check API status
+- `GET /health` → API status  
 
 ---
 
 ## ⚙️ Setup & Installation
 
-### 1. Clone the repository
-
+### 1. Clone repository
 ```bash
 git clone <repository-url>
 cd personal-portfolio-api
-```
-
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-### 3. Configure Database
-
-* Ensure **MySQL** is running
-* Create a database named `portfolio_db` (or update `.env`)
-* Import schema:
-
-```bash
-mysql -u root -p portfolio_db < schema.sql
-```
-
-* Create a `.env` file and update credentials:
-
-```env
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_password
-DB_NAME=portfolio_db
-PORT=5000
-ADMIN_PASSWORD=your_admin_password
-```
-
----
-
-### 4. Run the server
-
-```bash
-npm start
-```
-
-For development (with nodemon):
-
-```bash
-npm run dev
-```
-
----
-
-### 5. Access the app
-
-Frontend UI:
-👉 [http://localhost:3000](http://localhost:3000)
-
-API base URL:
-👉 [http://localhost:5000](http://localhost:5000)
-
-Health check:
-👉 [http://localhost:5000/health](http://localhost:5000/health)
-
----
-
-## 🌍 Live Deployment
-
-🔗 **Live API / Portfolio:**
-[Add your deployed link here]
-
----
-
-## 📌 Future Improvements
-
-* JWT-based authentication
-* Image upload support
-* Admin dashboard
-* Resume PDF export
-* Docker support
-
----
-
-## 👤 Author
-
-**Your Name**
-GitHub: [https://github.com/your-username](https://github.com/your-username)
-LinkedIn: [https://linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
-
----
-
-⭐ If you like this project, give it a star!
