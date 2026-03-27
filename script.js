@@ -1,7 +1,7 @@
-const API_URL = "https://api-purushottam.onrender.com";
-const API_BASE_URL="https://api-purushottam.onrender.com";
+const API_URL = "http://localhost:5000";
+const API_BASE_URL="http://localhost:5000";
 let isAdmin = false;
-let adminPassword = '';
+let adminPassword = 'thakur';
 
 
 // Test connection
@@ -253,8 +253,8 @@ async function fetchEducation() {
                     <p>${edu.coursework}</p>
                     ${isAdmin ? `
                     <div class="card-actions">
-                        <button onclick="editEducation(${edu.id}, '${safeJS(edu.institution)}', '${safeJS(edu.degree)}', '${safeJS(edu.start_year)}', '${safeJS(edu.end_year)}', '${safeJS(edu.cgpa)}', '${safeJS(edu.coursework)}')" class="btn-icon">✎</button>
-                        <button onclick="deleteEducation(${edu.id})" class="btn-icon btn-delete">🗑</button>
+                        <button onclick="editEducation('${edu._id}', '${safeJS(edu.institution)}', '${safeJS(edu.degree)}', '${safeJS(edu.start_year)}', '${safeJS(edu.end_year)}', '${safeJS(edu.cgpa)}', '${safeJS(edu.coursework)}')" class="btn-icon">✎</button>
+                        <button onclick="deleteEducation('${edu._id}')" class="btn-icon btn-delete">🗑</button>
                     </div>` : ''}
                 </div>
             `).join('');
@@ -278,8 +278,8 @@ async function fetchExperience() {
                     <p style="white-space: pre-line;">${exp.description}</p>
                     ${isAdmin ? `
                     <div class="card-actions">
-                        <button onclick="editExperience(${exp.id}, '${safeJS(exp.role)}', '${safeJS(exp.organization)}', '${safeJS(exp.duration)}', '${safeJS(exp.description)}')" class="btn-icon">✎</button>
-                        <button onclick="deleteExperience(${exp.id})" class="btn-icon btn-delete">🗑</button>
+                        <button onclick="editExperience('${exp._id}', '${safeJS(exp.role)}', '${safeJS(exp.organization)}', '${safeJS(exp.duration)}', '${safeJS(exp.description)}')" class="btn-icon">✎</button>
+                        <button onclick="deleteExperience('${exp._id}')" class="btn-icon btn-delete">🗑</button>
                     </div>` : ''}
                 </div>
             `).join('');
@@ -305,8 +305,8 @@ async function fetchSkills() {
                     </div>
                     ${isAdmin ? `
                     <div class="card-actions">
-                        <button onclick="editSkill(${skill.id}, '${safeJS(skill.name)}', '${safeJS(skill.category)}', ${skill.proficiency}, ${skill.is_top})" class="btn-icon">✎</button>
-                        <button onclick="deleteSkill(${skill.id})" class="btn-icon btn-delete">🗑</button>
+                        <button onclick="editSkill('${skill._id}', '${safeJS(skill.name)}', '${safeJS(skill.category)}', ${skill.proficiency}, ${skill.is_top})" class="btn-icon">✎</button>
+                        <button onclick="deleteSkill('${skill._id}')" class="btn-icon btn-delete">🗑</button>
                     </div>` : ''}
                 </div>
             `).join('');
@@ -344,7 +344,10 @@ async function fetchProjects(query = '') {
                         <h3>${project.title}</h3>
                         <p>${project.description}</p>
                         <div class="tech-stack">
-                            ${project.tech_stack ? project.tech_stack.split(',').map(t => `<span class="tag">${t.trim()}</span>`).join('') : ''}
+                           ${Array.isArray(project.tech_stack) 
+                                ? project.tech_stack.map(t => `<span class="tag">${t}</span>`).join('')
+                                : project.tech_stack?.split(',').map(t => `<span class="tag">${t.trim()}</span>`).join('')
+                                }
                         </div>
                         <div class="project-links">
                             ${project.live_link ? `<a href="${project.live_link}" target="_blank">Live Demo</a>` : ''}
@@ -352,8 +355,8 @@ async function fetchProjects(query = '') {
                         </div>
                         ${isAdmin ? `
                         <div class="card-actions">
-                            <button onclick="editProject(${project.id}, '${safeJS(project.title)}', '${safeJS(project.description)}', '${safeJS(project.tech_stack)}', '${safeJS(project.live_link)}', '${safeJS(project.github_link)}')" class="btn-icon">✎</button>
-                            <button onclick="deleteProject(${project.id})" class="btn-icon btn-delete">🗑</button>
+                            <button onclick="editProject("${project._id}", '${safeJS(project.title)}', '${safeJS(project.description)}', '${safeJS(project.tech_stack)}', '${safeJS(project.live_link)}', '${safeJS(project.github_link)}')" class="btn-icon">✎</button>
+                            <button onclick="deleteProject("${project._id}")" class="btn-icon btn-delete">🗑</button>
                         </div>` : ''}
                     </div>
                 `).join('');
@@ -400,8 +403,8 @@ async function filterProjects(filter, query = '') {
                     </div>
                     ${isAdmin ? `
                     <div class="card-actions">
-                        <button onclick="editProject(${project.id}, '${safeJS(project.title)}', '${safeJS(project.description)}', '${safeJS(project.tech_stack)}', '${safeJS(project.live_link)}', '${safeJS(project.github_link)}')" class="btn-icon">✎</button>
-                        <button onclick="deleteProject(${project.id})" class="btn-icon btn-delete">🗑</button>
+                        <button onclick="editProject(${project._id}, '${safeJS(project.title)}', '${safeJS(project.description)}', '${safeJS(project.tech_stack)}', '${safeJS(project.live_link)}', '${safeJS(project.github_link)}')" class="btn-icon">✎</button>
+                        <button onclick="deleteProject(${project._id})" class="btn-icon btn-delete">🗑</button>
                     </div>` : ''}
                 </div>
             `).join('');
@@ -1153,8 +1156,6 @@ function showSection(sectionId) {
         section.scrollIntoView({ behavior: 'smooth' });
     }
 }
-
-
 
 
 
