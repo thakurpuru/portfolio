@@ -35,8 +35,13 @@ const authenticate = (req, res, next) => {
     }
 };
 app.get("/",(req,res)=>{
-    res.json("ready");
+    res.json("running");
 })
+
+app.get('/health', (req, res) => {
+    res.json({ status: 'ok' });
+});
+
 // profile
 app.get('/profile', async (req, res) => {
   const profile = await Profile.findOne();
