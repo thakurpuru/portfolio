@@ -31,44 +31,44 @@ This project is designed to act as a **personal resume backend**, allowing dynam
 ## 🛠 Tech Stack
 
 **Backend:** Node.js, Express
-**Database:** MySQL
+**Database:** MongoDB
 **Frontend:** HTML, CSS, JavaScript (Vanilla)
 
 ---
 
-## 🗄 Database Schema
+## 🗄 Database Schema (MongoDB)
 
-The database `portfolio_db` consists of the following tables:
+The database **portfolio_db** uses MongoDB collections to store data in JSON format.
 
-### `profile`
+### 👤 Profile
+- name, email, education  
+- github_link, linkedin_link, portfolio_link  
+- bio, objective, interests, availability  
 
-* `id` INT (PK)
-* `name` VARCHAR
-* `email` VARCHAR
-* `education` TEXT
-* `github_link` VARCHAR
-* `linkedin_link` VARCHAR
-* `portfolio_link` VARCHAR
-* `bio` TEXT
+### 🛠 Skills
+- name, category  
+- proficiency (Number)  
+- is_top (Boolean)  
 
-### `skills`
+### 🚀 Projects
+- title, description  
+- tech_stack (Array of Strings)  
+- live_link, github_link  
 
-* `id` INT (PK)
-* `name` VARCHAR
-* `category` VARCHAR
-* `proficiency` INT
-* `is_top` BOOLEAN
+### 🎓 Education
+- institution, degree  
+- start_year, end_year  
+- cgpa, coursework  
 
-### `projects`
-
-* `id` INT (PK)
-* `title` VARCHAR
-* `description` TEXT
-* `tech_stack` VARCHAR
-* `live_link` VARCHAR
-* `github_link` VARCHAR
+### 💼 Experience
+- role, organization  
+- duration, description  
 
 ---
+
+## 🔑 Notes
+- MongoDB uses `_id` instead of `id`  
+- Data is stored as flexible JSON documents  
 
 ## 🔗 API Endpoints
 
