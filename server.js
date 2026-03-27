@@ -15,14 +15,21 @@ app.use(cors({
     optionsSuccessStatus: 200
 }));;
 
-main().then(()=>{
-    console.log("Database connected sucessfully");
-}).catch((err)=>{
-    console.log("Database connection Error",err);
-})
-async function main(){
+async function startServer() {
+  try {
     await mongoose.connect(process.env.DB_URL);
+    console.log("MongoDB Connected ✅");
+
+    app.listen(process.env.PORT || 5000, () => {
+      console.log("Server running 🚀");
+    });
+
+  } catch (err) {
+    console.log("DB Error:", err);
+  }
 }
+
+startServer();
 app.use(express.json());
 
 // Middleware for Admin Auth
