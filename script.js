@@ -1,5 +1,5 @@
-const API_URL = "http://localhost:5000";
-const API_BASE_URL="http://localhost:5000";
+const API_URL = "https://api-purushottam.onrender.com";
+const API_BASE_URL="https://api-purushottam.onrender.com";
 let isAdmin = false;
 let adminPassword = 'thakur';
 
