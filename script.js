@@ -355,7 +355,7 @@ async function fetchProjects(query = '') {
                         </div>
                         ${isAdmin ? `
                         <div class="card-actions">
-                            <button onclick="editProject('${project._id}', '${safeJS(project.title)}', '${safeJS(project.description)}', '${JSON.stringify(project.tech_stack)}', '${safeJS(project.live_link)}', '${safeJS(project.github_link)}')" class="btn-icon">✎</button>
+                            <button onclick="editProject('${project._id}', '${safeJS(project.title)}', '${safeJS(project.description)}', '${safeJS(Array.isArray(project.tech_stack) ? project.tech_stack.join(",") : project.tech_stack)}', '${safeJS(project.live_link)}', '${safeJS(project.github_link)}')" class="btn-icon">✎</button>
                             <button onclick="deleteProject('${project._id}')" class="btn-icon btn-delete">🗑</button>
                         </div>` : ''}
                     </div>
