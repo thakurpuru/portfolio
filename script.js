@@ -597,9 +597,15 @@ async function saveProject() {
         title: document.getElementById('project-title').value,
         description: document.getElementById('project-desc').value,
         tech_stack: document.getElementById('project-tech').value
+<<<<<<< HEAD
                     .split(',')
                     .map(t => t.trim())
                     .filter(t => t.length > 0),
+=======
+                .split(',')
+                .map(t => t.trim())
+                .filter(t => t.length > 0),
+>>>>>>> 56f600d ( backend correct)
         live_link: document.getElementById('project-live').value,
         github_link: document.getElementById('project-github').value
     };
@@ -695,7 +701,11 @@ function editProject(id, title, desc, tech, live, github) {
     const projectDescEl = document.getElementById('project-desc');
     if (projectDescEl) projectDescEl.value = desc;
     const projectTechEl = document.getElementById('project-tech');
+<<<<<<< HEAD
     if (projectTechEl) projectTechEl.value = Array.isArray(tech) ? tech.join(', ') : tech;
+=======
+    if (projectTechEl) projectTechEl.value = Array.isArray(tech) ? tech.join(', ') : tech;;
+>>>>>>> 56f600d ( backend correct)
     const projectLiveEl = document.getElementById('project-live');
     if (projectLiveEl) projectLiveEl.value = live;
     const projectGithubEl = document.getElementById('project-github');
