@@ -48,7 +48,6 @@ app.get("/",(req,res)=>{
 app.get('/health', (req, res) => {
     res.json({ status: 'ok' });
 });
-
 // profile
 app.get('/profile', async (req, res) => {
   const profile = await Profile.findOne();
