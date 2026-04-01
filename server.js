@@ -229,6 +229,4 @@ app.post('/auth/login', (req, res) => {
         res.status(401).json({ error: 'Invalid password' });
     }
 });
-app.listen(5000,()=>{
-    console.log("Listening at 5000");
-})
+
